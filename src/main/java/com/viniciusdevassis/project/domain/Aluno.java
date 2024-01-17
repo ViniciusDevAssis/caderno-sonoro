@@ -1,6 +1,7 @@
 package com.viniciusdevassis.project.domain;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,6 +10,8 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 
 import com.viniciusdevassis.project.domain.enums.Cargo;
 import com.viniciusdevassis.project.domain.enums.Instrumento;
+import com.viniciusdevassis.project.domain.enums.Nivel;
+import com.viniciusdevassis.project.dto.TutorDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -16,9 +19,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Document(collection="usuario")
+@Document(collection="aluno")
 @NoArgsConstructor @AllArgsConstructor @EqualsAndHashCode(of="id")
-public class Usuario implements Serializable{
+public class Aluno implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -30,6 +33,13 @@ public class Usuario implements Serializable{
 	
 	@Field(targetType = FieldType.STRING)
 	@Getter @Setter private Instrumento instrumento;
+	
+	@Field(targetType = FieldType.STRING)
+	@Getter @Setter private Nivel nivel;
+	
 	@Getter @Setter private String contato;
 	
+	@Getter @Setter private Date inicio;
+	
+	@Getter @Setter private TutorDTO tutor;
 }

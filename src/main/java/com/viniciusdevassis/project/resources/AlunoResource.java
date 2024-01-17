@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.viniciusdevassis.project.domain.Usuario;
-import com.viniciusdevassis.project.services.UsuarioService;
+import com.viniciusdevassis.project.domain.Aluno;
+import com.viniciusdevassis.project.services.AlunoService;
 
-@RestController @RequestMapping(value="/usuarios")
-public class UsuarioResource {
+@RestController @RequestMapping(value="/alunos")
+public class AlunoResource {
 
 	@Autowired
-	private UsuarioService service;
+	private AlunoService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll(){
-		List<Usuario> list = service.findAll();
+	public ResponseEntity<List<Aluno>> findAll(){
+		List<Aluno> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }

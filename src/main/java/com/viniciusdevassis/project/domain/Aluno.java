@@ -1,7 +1,9 @@
 package com.viniciusdevassis.project.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,6 +13,7 @@ import org.springframework.data.mongodb.core.mapping.FieldType;
 import com.viniciusdevassis.project.domain.enums.Cargo;
 import com.viniciusdevassis.project.domain.enums.Instrumento;
 import com.viniciusdevassis.project.domain.enums.Nivel;
+import com.viniciusdevassis.project.dto.ProgressoDTO;
 import com.viniciusdevassis.project.dto.TutorDTO;
 
 import lombok.AllArgsConstructor;
@@ -42,4 +45,18 @@ public class Aluno implements Serializable{
 	@Getter @Setter private Date inicio;
 	
 	@Getter @Setter private TutorDTO tutor;
+	
+	@Getter @Setter private List<ProgressoDTO> progresso = new ArrayList<>();
+
+	public Aluno(String id, String nome, Cargo cargo, Instrumento instrumento, Nivel nivel, String contato, Date inicio,
+			TutorDTO tutor) {
+		this.id = id;
+		this.nome = nome;
+		this.cargo = cargo;
+		this.instrumento = instrumento;
+		this.nivel = nivel;
+		this.contato = contato;
+		this.inicio = inicio;
+		this.tutor = tutor;
+	}
 }

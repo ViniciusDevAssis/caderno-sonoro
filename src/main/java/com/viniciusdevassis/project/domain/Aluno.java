@@ -1,6 +1,7 @@
 package com.viniciusdevassis.project.domain;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,13 +43,13 @@ public class Aluno implements Serializable{
 	
 	@Getter @Setter private String contato;
 	
-	@Getter @Setter private Date inicio;
+	@Getter @Setter private Instant inicio;
 	
 	@Getter @Setter private TutorDTO tutor;
 	
 	@Getter @Setter private List<ProgressoDTO> progresso = new ArrayList<>();
 
-	public Aluno(String id, String nome, Cargo cargo, Instrumento instrumento, Nivel nivel, String contato, Date inicio,
+	public Aluno(String id, String nome, Cargo cargo, Instrumento instrumento, Nivel nivel, String contato, Instant inicio,
 			TutorDTO tutor) {
 		this.id = id;
 		this.nome = nome;

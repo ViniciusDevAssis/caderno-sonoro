@@ -1,5 +1,6 @@
 package com.viniciusdevassis.project.services;
 
+import java.time.Instant;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,12 @@ public class AlunoService {
 	
 	public List<Aluno> findAll(){
 		return repo.findAll();
+	}
+	
+	public Aluno inserirAluno(Aluno obj) {
+		obj.setInicio(Instant.now());
+		obj.setTutor(null);
+		obj.setProgresso(null);
+		return repo.insert(obj);
 	}
 }

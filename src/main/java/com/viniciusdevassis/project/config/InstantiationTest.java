@@ -1,6 +1,7 @@
 package com.viniciusdevassis.project.config;
 
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.TimeZone;
 
@@ -48,7 +49,7 @@ public class InstantiationTest implements CommandLineRunner{
 		
 		usuarioRepository.saveAll(Arrays.asList(u1));
 		
-		Aluno a1 = new Aluno(null, "Samuel Pereira", Cargo.ALUNO, Instrumento.CORNET, Nivel.OFICIALIZADO, "7512345678", sdf.parse("05/05/2018"), new TutorDTO(u1));
+		Aluno a1 = new Aluno(null, "Samuel Pereira", Cargo.ALUNO, Instrumento.CORNET, Nivel.OFICIALIZADO, "7512345678", Instant.now(), new TutorDTO(u1));
 		
 		ProgressoDTO p1 = new ProgressoDTO("Teste de Oficialização", sdf.parse("03/09/2022"), new TutorDTO(u1));
 		
